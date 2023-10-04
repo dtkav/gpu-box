@@ -3,10 +3,9 @@ import whisper
 from gpu_box.types import JSONType, File
 
 
-
 class WhisperBase(ModelRoute):
-    """ Whisper from OpenAI (base)
-    """
+    """Whisper from OpenAI (base)"""
+
     name = "whisper-base"
     model_size = "base"
 
@@ -19,8 +18,7 @@ class WhisperBase(ModelRoute):
 
 
 class WhisperLarge(WhisperBase):
-    """ Whisper from OpenAI (large)
-    """
+    """Whisper from OpenAI (large)"""
+
     name = "whisper-large"
     model_size = "large"
-

@@ -2,9 +2,10 @@ from .base import ModelRoute
 from gpu_box.types import JSONType, File
 from whispercpp import Whisper
 
+
 class WhisperCppBase(ModelRoute):
-    """ Whisper.cpp (base)
-    """
+    """Whisper.cpp (base)"""
+
     name = "whispercpp-base"
     model_size = "base"
 
@@ -18,14 +19,14 @@ class WhisperCppBase(ModelRoute):
 
 
 class WhisperCppTiny(WhisperCppBase):
-    """ Whisper.cpp (tiny)
-    """
+    """Whisper.cpp (tiny)"""
+
     name = "whispercpp-tiny"
     model_size = "tiny"
 
 
 class WhisperCppLarge(WhisperCppBase):
-    """ Whisper.cpp (large)
-    """
+    """Whisper.cpp (large)"""
+
     name = "whispercpp-large"
     model_size = "large"

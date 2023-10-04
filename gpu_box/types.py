@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 JSONType = Union[Dict[str, Any], List[Any], str, int, float, bool, None]
 
+
 @dataclass
 class File:
     path: str

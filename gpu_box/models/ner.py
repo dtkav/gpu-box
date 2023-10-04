@@ -14,8 +14,8 @@ def get_val(d):
 
 
 class NER(ModelRoute):
-    """ Named Entity Recognition using dbmdz/bert-large-cased-finetuned-conll03-english
-    """
+    """Named Entity Recognition using dbmdz/bert-large-cased-finetuned-conll03-english"""
+
     name = "ner"
 
     def load(self):

@@ -1,5 +1,3 @@
-
-
 class ModelRouteRegistry:
     _registry = {}  # Store model classes by their names
 
@@ -53,10 +51,11 @@ class NotLoadedError(Exception):
 
 
 class ModelRoute:
-    """ A base model to be subclassed.
-        The role of this model is to rapidly enable adding models by just setting a name, and a typed run function.
-        The run function's signature is then inspected in order to prep the input and output shapes (to/from bytes, json, etc).
+    """A base model to be subclassed.
+    The role of this model is to rapidly enable adding models by just setting a name, and a typed run function.
+    The run function's signature is then inspected in order to prep the input and output shapes (to/from bytes, json, etc).
     """
+
     name = "override_me"
     model = None
 
@@ -94,4 +93,3 @@ class ModelRoute:
     def __repr__(self):
         load_str = " (loaded)" if self.loaded else ""
         return f"{self.__class__.__name__}({self.name}){load_str}: {self.__doc__}"
-

@@ -16,16 +16,15 @@ from starlette.routing import Route
 from gpu_box.models.base import ModelRouteRegistry, ModelRoute
 from gpu_box.servers.starlette import get_request_response
 
+
 class UnknownModel(Exception):
     def __init__(self, detail: str):
         self.detail = detail
 
 
 async def custom_error_handler(request, exc):
-    return JSONResponse(
-        status_code=400,
-        content={"detail": exc.detail}
-    )
+    return JSONResponse(status_code=400, content={"detail": exc.detail})
+
 
 NGROK_TOKEN = os.environ.get("NGROK_TOKEN")
 
@@ -51,7 +50,7 @@ def make_routes(models: list[ModelRoute]):
     routes = []
     for model in models:
         extract, package = get_request_response(model.run)
- 
+
         async def handler(request: Request):
             response_q = asyncio.Queue()
             payload = await extract(request)
@@ -65,7 +64,7 @@ def make_routes(models: list[ModelRoute]):
 
         routes += [Route(f"/api/v0/inference/{model.name}", handler, methods=["POST"])]
     return routes
- 
+
 
 def run_server(port=8421):
     models = ModelRouteRegistry.get_models().values()
