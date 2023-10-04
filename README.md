@@ -1,10 +1,15 @@
 # GPU Box API Framework 🚀
 
+> [!IMPORTANT]  
+> Hey, you probably shouldn't use this. It is just for fun.
+>
+> ❤️  Daniel
+
 An easy-to-use API framework for serving machine learning models via a REST API. Built on the robust foundation of Starlette, Uvicorn, and Asyncio.
 
 ## Features
 - 🚄 Fast and Asynchronous: Leverages the power of Starlette and Uvicorn for high-performance operations.
-- 📦 Model Agnostic: Add any model seamlessly without any additional setup.
+- 📦 Model Agnostic: Add any model seamlessly with a few lines of code.
 - 🔐 Secure: Choose between OAuth or basic authentication for secure endpoint access.
 - 🔄 Automatic API Generation: API endpoints are generated based on the type signature of your model's `run` function.
 - 🎒 Built-In Tunneling: With `pyngrok` integration, expose your local server to the world without any hassles.
