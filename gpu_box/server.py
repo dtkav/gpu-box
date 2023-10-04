@@ -47,12 +47,10 @@ async def server_loop(q):
         await response_q.put(result)
 
 
-models = ModelRouteRegistry.get_models().values()
 def make_routes(models: list[ModelRoute]):
     routes = []
     for model in models:
         extract, package = get_request_response(model.run)
-        print(model.name, extract, package)
  
         async def handler(request: Request):
             response_q = asyncio.Queue()
@@ -65,26 +63,22 @@ def make_routes(models: list[ModelRoute]):
             response = await package(output)
             return response
 
-        routes += [Route(f"/{model.name}", handler, methods=["POST"])]
+        routes += [Route(f"/api/v0/inference/{model.name}", handler, methods=["POST"])]
     return routes
+ 
 
+def run_server(port=8421):
+    models = ModelRouteRegistry.get_models().values()
+    routes = make_routes(models)
+    pprint(routes)
+    app = Starlette(routes=routes)
+    app.add_exception_handler(UnknownModel, custom_error_handler)
 
-routes = make_routes(models)
-pprint(routes)
-app = Starlette(
-    routes=routes
-)
-app.add_exception_handler(UnknownModel, custom_error_handler)
+    @app.on_event("startup")
+    async def startup_event():
+        q = asyncio.Queue()
+        app.model_queue = q
 
-
-@app.on_event("startup")
-async def startup_event():
-    q = asyncio.Queue()
-    app.model_queue = q
     asyncio.create_task(server_loop(q))
-
-
-def run_server():
     nest_asyncio.apply()
-    uvicorn.run(app, port=8421)
-
+    uvicorn.run(app, port=port)
