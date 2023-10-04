@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "gpu-box"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Grossmann-Kavanagh <me@danielgk.com>"]
+readme = "README.md"
+packages = [{include = "gpu_box"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+starlette = "^0.31.1"
+uvicorn = "^0.23.2"
+transformers = {version = "^4.34.0"}
+openai-whisper = "^20230918"
+nest-asyncio = "^1.5.8"
+click = "^8.1.7"
+python-multipart = "^0.0.6"
+whispercpp = {git = "https://github.com/stlukey/whispercpp.py"}
+
+
+[tool.poetry.group.dev.dependencies]
+autoflake = "^2.2.1"
+bpython = "^0.24"
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,39 @@
+pip install autoflake
+pip install bpython
+pip install fastapi
+pip install flake8
+pip install git+https://github.com/marcolardera/chatgpt-cli
+pip install graphviz
+pip install html2markdown
+pip install ipykernel
+pip install isort
+pip install jupyter-lab
+pip install llama-cpp-python
+pip install llama-index
+pip install markdown
+pip install markdownify
+pip install matplotlib
+pip install mwclient click
+pip install nest_asyncio
+pip install Numba
+pip install numpy
+pip install openai
+pip install openai[embeddings[
+pip install openai[embeddings]
+pip install pandas
+pip install plotly
+pip install pyngrok
+pip install readabilipy
+pip install requests
+pip install revolver
+pip install -r requirements.txt 
+pip install scipy
+pip install shell-gpt
+pip install sklearn
+pip install starlette
+pip install tiktoken
+pip install tqdm
+pip install transformers
+pip install 'transformers[torch]'
+pip install -U openai-whisper
+pip install uvicorn
